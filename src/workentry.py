@@ -1,4 +1,6 @@
 import time
+import sys
+
 
 class Workentry:
     def __init__(self, description, starttime, endtime, lunchbreak=0):
@@ -40,3 +42,9 @@ class Workentry:
         TS = 0
         time_tupel = y,d,m,H,M,S,ZS,HS,TS
         return time_tupel
+
+if __name__ == '__main__':
+    workentry = Workentry(sys.argv[1], sys.argv[2], sys.argv[3])
+    sys.stdout.write(workentry.description() + " " + workentry.starttime() + "-" + workentry.endtime())
+    sys.stdout.flush()
+    sys.exit(0)
