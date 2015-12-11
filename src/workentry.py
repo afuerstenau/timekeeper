@@ -2,6 +2,7 @@ import time
 
 class Workentry:
     lunchbreak_30min_options = ["30", "0,5", "0.5", ".5", ",5"]
+    lunchbreak_45min_options = ["45", "0,75", "0.75", ".75", ",75"]
     lunchbreak_one_and_half_hours_options = ["1,5", "1.5"]
     def __init__(self, description, starttime, endtime, lunchbreak=0):
             self._description = description
@@ -12,6 +13,9 @@ class Workentry:
             if lunchbreak in self.lunchbreak_30min_options:
                 self._lunchbreak = "00:30"
                 self._lunchbreak_as_number = 0.5
+            elif lunchbreak in self.lunchbreak_45min_options:
+                self._lunchbreak = "00:45"
+                self._lunchbreak_as_number = 0.75
             elif lunchbreak=="1":
                 self._lunchbreak = "01:00"
                 self._lunchbreak_as_number = 1
